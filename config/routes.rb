@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
   resources :channels
   resources :ideas do
+   match 'post_action', via: [ :post, :options]
    resources :remarks
   end
 

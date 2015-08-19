@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+ namespace :api, {:default => :json} do
+  namespace :v1 do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -7,7 +9,6 @@ Rails.application.routes.draw do
   get '/', :to => redirect("welcome")
   resources :channels
   resources :ideas do
-   match 'post_action', via: [ :post, :options]
    resources :remarks
   end
 
@@ -59,4 +60,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  end
+ end
 end

@@ -32,6 +32,8 @@ class IdeasController < ApplicationController
 
   private
   def idea_params
-   params.permit(:title, :content, :channel_id)
+   # params.permit(:title, :content, :channel_id)
+   json_params = ActionController::Parameters.new( JSON.parse(request.body.read) )
+   return json_params.permit(:title, :content, :channel_id)
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ get '/', :to => redirect("welcome")
  namespace :api, {:default => :json} do
   namespace :v1 do
 
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  get '/', :to => redirect("welcome")
   resources :channels
   resources :ideas do
    resources :remarks
